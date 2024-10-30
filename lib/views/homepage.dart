@@ -4,6 +4,8 @@ import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/constants/app_constats.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/category_item_builder_widget.dart';
+import 'package:task_7/core/widgets/cheak_box_widget.dart';
+import 'package:task_7/core/widgets/stack_item_widget.dart';
 
 import 'package:task_7/core/widgets/video_call_widget.dart';
 
@@ -93,7 +95,7 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 6,
           ),
           SizedBox(
             height: 80,
@@ -156,7 +158,11 @@ class _HomepageState extends State<Homepage> {
               },
             ),
           ),
-          const SizedBox()
+          const SizedBox(
+            height: 20,
+          ),
+          const StackItemWidget(),
+          //  const CheakBoxWidget()
         ]),
       ),
     );
