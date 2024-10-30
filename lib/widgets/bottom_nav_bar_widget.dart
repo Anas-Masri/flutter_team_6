@@ -63,12 +63,12 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
                     dashColor: AppColors.praimeryButtonColor,
                     mainColor: const Color(0xffBDBDBD),
                     targetColor: AppColors.praimeryButtonColor,
-                    svgIcon: AppSvgIcon.message)
+                    svgIcon: AppSvgIcon.activeMessage)
                 : BottomNavigationBarIcon(
                     dashColor: Colors.transparent,
-                    mainColor: const Color(0xffBDBDBD),
-                    targetColor: const Color(0xffBDBDBD),
-                    svgIcon: AppSvgIcon.message),
+                    mainColor: AppColors.praimeryButtonColor,
+                    targetColor: const Color(0xffBDBDBD).withOpacity(.3),
+                    svgIcon: AppSvgIcon.activeMessage),
           ),
           BottomNavigationBarItem(
               label: '',

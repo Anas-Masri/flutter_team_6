@@ -4,6 +4,7 @@ class AppSvgIcon {
   static String home = 'assets/svgs/home.svg';
   static String map = 'assets/svgs/map.svg';
   static String message = 'assets/svgs/message.svg';
+  static String activeMessage = 'assets/svgs/active_message.svg';
   static String notification = 'assets/svgs/notification.svg';
   static String profile = 'assets/svgs/profile.svg';
   static String videoIcon = 'assets/svgs/video_icon.svg';

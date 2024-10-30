@@ -130,7 +130,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   isNotRead: false,
                   isOnline: false,
                   title: 'Hilman Nuris',
-                  image: 'assets/images/Avatar 6.png',
+                  image: 'assets/images/Avatar 5.png',
                   subTitle: 'thank’s for your information dude!'),
               const MessageItemBuilderWidget(
                   time: 'Yesterday  ',
@@ -138,7 +138,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   numberOfMasseges: 1,
                   isOnline: true,
                   title: 'Erick Lawrence',
-                  image: 'assets/images/Avatar 8.png',
+                  image: 'assets/images/Avatar 6.png',
                   subTitle:
                       'Did you take the free illustration class yesterday?'),
               const MessageItemBuilderWidget(
@@ -157,6 +157,13 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   title: 'Andy Warhol',
                   image: 'assets/images/Avatar11.png',
                   subTitle: 'that’s true bro, hahaha'),
+              const MessageItemBuilderWidget(
+                  time: '13/08/20  ',
+                  isNotRead: false,
+                  isOnline: false,
+                  title: 'Thomas Partrey',
+                  image: 'assets/images/Avatar 8.png',
+                  subTitle: 'nice sam'),
             ],
           ),
         ]),
