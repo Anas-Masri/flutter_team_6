@@ -14,6 +14,8 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+int selectedIndex = 0;
+
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
@@ -50,15 +52,15 @@ class _HomepageState extends State<Homepage> {
                 const SizedBox(
                   width: 2.5,
                 ),
-                const Text(
+                Text(
                   '+1600',
                   style: TextStyle(
-                      color: Color(0xff4ED442), fontWeight: FontWeight.w600),
+                      color: AppColors.greenColor, fontWeight: FontWeight.w600),
                 ),
-                const Text(
+                Text(
                   ' Points',
                   style: TextStyle(
-                      color: Color(0xff4ED442), fontWeight: FontWeight.w400),
+                      color: AppColors.greenColor, fontWeight: FontWeight.w400),
                 ),
               ],
             ),
@@ -84,7 +86,7 @@ class _HomepageState extends State<Homepage> {
                             color: Colors.white,
                             strokeAlign: BorderSide.strokeAlignOutside),
                         borderRadius: BorderRadius.circular(9),
-                        color: Colors.green),
+                        color: AppColors.onlineColor),
                   ),
                 )
               ],
@@ -139,9 +141,18 @@ class _HomepageState extends State<Homepage> {
             height: 40,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 1,
+              itemCount: categorylist.length,
               itemBuilder: (BuildContext context, int index) {
-                return const CategoryItemBuilderWidget();
+                return GestureDetector(
+                  onTap: () {
+                    selectedIndex = index;
+                    setState(() {});
+                  },
+                  child: CategoryItemBuilderWidget(
+                    isSelected: selectedIndex == index,
+                    categoryName: categorylist[index],
+                  ),
+                );
               },
             ),
           )
