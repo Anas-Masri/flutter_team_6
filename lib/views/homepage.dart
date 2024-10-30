@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:task_7/constants/app_colors.dart';
-import 'package:task_7/constants/app_constats.dart';
-import 'package:task_7/constants/app_svg_icon.dart';
-import 'package:task_7/widgets/category_item_builder_widget.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_constats.dart';
+import 'package:task_7/core/constants/app_svg_icon.dart';
+import 'package:task_7/core/widgets/category_item_builder_widget.dart';
 
-import 'package:task_7/widgets/video_call_widget.dart';
+import 'package:task_7/core/widgets/video_call_widget.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

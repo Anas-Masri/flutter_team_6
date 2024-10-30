@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_7/constants/app_colors.dart';
-import 'package:task_7/constants/app_svg_icon.dart';
-import 'package:task_7/widgets/bottom_navigation_bar_icon.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_svg_icon.dart';
+import 'package:task_7/core/widgets/bottom_navigation_bar_icon.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
   const BottomNavBarWidget({super.key, required this.controller});

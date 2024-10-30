@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_7/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_colors.dart';
 
 class TimeAvilableWidget extends StatefulWidget {
   const TimeAvilableWidget({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:task_7/widgets/svg_color_mapper.dart';
+import 'package:task_7/core/widgets/svg_color_mapper.dart';
 
 class BottomNavigationBarIcon extends StatelessWidget {
   const BottomNavigationBarIcon(

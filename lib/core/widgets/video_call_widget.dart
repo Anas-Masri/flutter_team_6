@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:task_7/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_colors.dart';
 
 class VideoCallWidget extends StatelessWidget {
   const VideoCallWidget({super.key, required this.image});
