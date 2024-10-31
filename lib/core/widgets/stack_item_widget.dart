@@ -129,8 +129,8 @@ class StackItemWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(21),
                     gradient: LinearGradient(colors: [
-                      Colors.white.withOpacity(0.8),
-                      Colors.white.withOpacity(0.8),
+                      Colors.white.withOpacity(0.85),
+                      Colors.white.withOpacity(0.85),
                     ], begin: Alignment.bottomLeft, end: Alignment.topCenter)),
               )
             : const SizedBox(),

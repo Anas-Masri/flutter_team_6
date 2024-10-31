@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/constants/app_constats.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/category_item_builder_widget.dart';
-import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/stack_item_widget.dart';
 
 import 'package:task_7/core/widgets/video_call_widget.dart';
@@ -17,6 +17,7 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+PageController controller = PageController();
 int imageSelectedIndex = 0;
 int selectedIndex = 0;
 
@@ -166,12 +167,13 @@ class _HomepageState extends State<Homepage> {
           SizedBox(
             width: 400,
             child: CarouselSlider.builder(
+              carouselController: CarouselSliderController(),
               options: CarouselOptions(
+                enlargeFactor: 0.4,
                 disableCenter: true,
                 onPageChanged: (index, reason) {
                   imageSelectedIndex = index;
                   setState(() {});
-                  print(imageSelectedIndex);
                 },
                 viewportFraction: 0.67,
                 enableInfiniteScroll: false,
@@ -190,7 +192,20 @@ class _HomepageState extends State<Homepage> {
                           )),
             ),
           ),
-          const CustomButtonWidget()
+          const SizedBox(
+            height: 13,
+          ),
+          SmoothPageIndicator(
+            controller: PageController(initialPage: imageSelectedIndex),
+            count: 5,
+            effect: ExpandingDotsEffect(
+                dotHeight: 5,
+                radius: 7,
+                dotColor: const Color(0xffeeeeee),
+                activeDotColor: AppColors.praimeryButtonColor,
+                dotWidth: 13.5,
+                expansionFactor: 1.1),
+          ),
         ]),
       ),
     );
