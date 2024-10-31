@@ -1,4 +1,9 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:task_7/constants/app_colors.dart';
+import 'package:task_7/constants/app_svg_icon.dart';
+import 'package:task_7/widgets/message_item_builder_widget.dart';
 
 class MyMessageScreen extends StatefulWidget {
   const MyMessageScreen({super.key});
@@ -14,755 +19,139 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
       child: Container(
         color: Colors.white,
         child: Column(children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 59, left: 14),
-                child: Card(
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      Image.asset('assets/images/Avatar 1.png',
-                          height: 36, width: 36),
-                      Positioned(
-                        top: 27,
-                        left: 27,
-                        child: Image.asset('assets/images/Ellipse 1.png',
-                            height: 9, width: 9),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(
+            padding: const EdgeInsets.only(top: 55),
+            child: ListTile(
+              trailing: Stack(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 55, left: 20),
-                    child: Text(
-                      'My Messages',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black,
-                      ),
+                  SvgPicture.asset(AppSvgIcon.notification),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      width: 5.5,
+                      height: 5.5,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.white,
+                              width: 1.35,
+                              strokeAlign: BorderSide.strokeAlignOutside),
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.praimeryButtonColor),
                     ),
-                  ),
-                  SizedBox(height: 3),
-                  Padding(
-                    padding: EdgeInsets.only(left: 19),
-                    child: Text(
-                      '2 new messages',
-                      style: TextStyle(
-                        fontFamily: 'Poppins2',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
+                  )
                 ],
               ),
-              const Spacer(),
-              Stack(
-                alignment: Alignment.topRight,
+              title: const Text('My Messages'),
+              subtitle: const Text(
+                '+2 new messages',
+                style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: 'Poppins',
+                    color: Color(0xffC7C9D9),
+                    fontWeight: FontWeight.w400),
+              ),
+              leading: Stack(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 66, right: 15),
-                    child: Icon(Icons.notifications),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: const Color(0xffF6F7FA),
+                        borderRadius: BorderRadius.circular(7)),
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/image5.jfif'),
+                    ),
                   ),
                   Positioned(
-                    top: 67,
-                    right: 17,
-                    child: Image.asset('assets/images/Ellipse 3.png'),
-                  ),
+                    top: 30,
+                    left: 30,
+                    child: Container(
+                      width: 9,
+                      height: 9,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 1.34,
+                              color: Colors.white,
+                              strokeAlign: BorderSide.strokeAlignOutside),
+                          borderRadius: BorderRadius.circular(9),
+                          color: Colors.green),
+                    ),
+                  )
                 ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-          const Padding(
-            padding: EdgeInsets.only(left: 0),
-            child: Card(
-              child: SizedBox(
-                width: 309,
-                height: 51,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 14),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Search here',
-                        style: TextStyle(
-                          fontFamily: 'Poppins2',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
-                      Spacer(),
-                      Card(
-                        color: Colors.orange,
-                        child: SizedBox(
-                          width: 39,
-                          height: 39,
-                          child:
-                              Icon(Icons.search_outlined, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ),
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar 4.png',
-                                    height: 36, width: 36),
-                                Positioned(
-                                  top: 27,
-                                  left: 27,
-                                  child: Image.asset(
-                                      'assets/images/Ellipse 1.png',
-                                      height: 9,
-                                      width: 9),
-                                ),
-                              ],
+                padding:
+                const EdgeInsets.symmetric(horizontal: 15, vertical: 26),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      suffixIcon: SizedBox(
+                        width: 50,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(9),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: AppColors.praimeryButtonColor),
+                              child: const Icon(
+                                Icons.search,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Roger Hulg',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            '15 min',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'Hey, can I ask something? I need\n your help please',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, top: 20),
-                                      child: Image.asset(
-                                          'assets/images/Circle Notifications.png'),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 8,
+                            )
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
+                      hintStyle: const TextStyle(color: Color(0xff9D9FA0)),
+                      hintText: 'Search here',
+                      filled: true,
+                      fillColor: const Color(0xffF6F7FA),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(5.5))),
                 ),
               ),
+              const MessageItemBuilderWidget(
+                  time: '15 min  ',
+                  isNotRead: true,
+                  numberOfMasseges: 4,
+                  isOnline: true,
+                  title: 'Roger Hulg',
+                  image: 'assets/images/Avatar 4.png',
+                  subTitle:
+                  'Hey, can i ask something? i need your help please'),
+              const MessageItemBuilderWidget(
+                  time: 'Yesterday  ',
+                  isNotRead: false,
+                  isOnline: false,
+                  title: 'Hilman Nuris',
+                  image: 'assets/images/Avatar 6.png',
+                  subTitle: 'thank’s for your information dude!'),
+              const MessageItemBuilderWidget(
+                  time: 'Yesterday  ',
+                  isNotRead: true,
+                  numberOfMasseges: 1,
+                  isOnline: true,
+                  title: 'Erick Lawrence',
+                  image: 'assets/images/Avatar 8.png',
+                  subTitle:
+                  'Did you take the free illustration class yesterday?'),
+              const MessageItemBuilderWidget(
+                  time: '2 week ago  ',
+                  isNotRead: true,
+                  numberOfMasseges: 2,
+                  isOnline: true,
+                  title: 'Jennifer Dunn',
+                  image: 'assets/images/Avatar.png',
+                  subTitle:
+                  'Hey Samuel, where did you get your point? can we exchange?'),
 
-              // Divider
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar 5.png',
-                                    height: 36, width: 36),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Hilman Nuris',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'Yesterday',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'thank’s for your information dude!',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar 6.png',
-                                    height: 36, width: 36),
-                                Positioned(
-                                  top: 27,
-                                  left: 27,
-                                  child: Image.asset(
-                                      'assets/images/Ellipse 1.png',
-                                      height: 9,
-                                      width: 9),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Erick Lawrence',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'Yesterday',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'Did you take the free illustration\n class yesterday?',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, top: 20),
-                                      child: Image.asset(
-                                          'assets/images/Circle Notifications-Normal.png'),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              // Divider
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar.png',
-                                    height: 36, width: 36),
-                                Positioned(
-                                  top: 27,
-                                  left: 27,
-                                  child: Image.asset(
-                                      'assets/images/Ellipse 1.png',
-                                      height: 9,
-                                      width: 9),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Erick Lawrence',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            '2 week ago',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'Hey Samuel, where did you get\n your point? can we exchange?',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, top: 20),
-                                      child: Image.asset(
-                                          'assets/images/Circle Notifications3.png'),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              // Divider
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar11.png',
-                                    height: 36, width: 36),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Hilman Nuris',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            '14/08/20',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'that’s true bro, hahaha',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  width: 309,
-                  height: 74,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Image.asset('assets/images/Avatar 8.png',
-                                    height: 36, width: 36),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      child: Text(
-                                        'Thomas Partrey',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, right: 0),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            '13/08/20',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins2',
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Icon(
-                                            Icons.arrow_back_ios,
-                                            size: 16,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 10),
-                                      child: Text(
-                                        'common bro!!',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontFamily: 'Poppins2',
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 64, right: 32, top: 20),
-                child: Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  height: 1,
-                ),
-              ),
             ],
           ),
         ]),
