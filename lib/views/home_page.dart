@@ -9,6 +9,7 @@ import 'package:task_7/core/widgets/category_item_builder_widget.dart';
 import 'package:task_7/core/widgets/stack_item_widget.dart';
 
 import 'package:task_7/core/widgets/video_call_widget.dart';
+import 'package:task_7/views/detail_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -187,8 +188,17 @@ class _HomepageState extends State<Homepage> {
                       Container(
                           padding: const EdgeInsets.only(left: 15.5),
                           alignment: Alignment.bottomLeft,
-                          child: StackItemWidget(
-                            isNotSelected: imageSelectedIndex != itemIndex,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const DetailPage(),
+                                  ));
+                            },
+                            child: StackItemWidget(
+                              isNotSelected: imageSelectedIndex != itemIndex,
+                            ),
                           )),
             ),
           ),
