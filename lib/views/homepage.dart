@@ -1,10 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/constants/app_constats.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/category_item_builder_widget.dart';
-import 'package:task_7/core/widgets/cheak_box_widget.dart';
+import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/stack_item_widget.dart';
 
 import 'package:task_7/core/widgets/video_call_widget.dart';
@@ -16,6 +17,7 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+int imageSelectedIndex = 0;
 int selectedIndex = 0;
 
 class _HomepageState extends State<Homepage> {
@@ -159,10 +161,36 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 50,
           ),
-          const StackItemWidget(),
-          //  const CheakBoxWidget()
+          SizedBox(
+            width: 400,
+            child: CarouselSlider.builder(
+              options: CarouselOptions(
+                disableCenter: true,
+                onPageChanged: (index, reason) {
+                  imageSelectedIndex = index;
+                  setState(() {});
+                  print(imageSelectedIndex);
+                },
+                viewportFraction: 0.67,
+                enableInfiniteScroll: false,
+                padEnds: false,
+                height: 350,
+                enlargeCenterPage: true,
+              ),
+              itemCount: 5,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Container(
+                          padding: const EdgeInsets.only(left: 15.5),
+                          alignment: Alignment.bottomLeft,
+                          child: StackItemWidget(
+                            isNotSelected: imageSelectedIndex != itemIndex,
+                          )),
+            ),
+          ),
+          const CustomButtonWidget()
         ]),
       ),
     );
