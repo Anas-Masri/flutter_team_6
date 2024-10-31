@@ -14,6 +14,7 @@ class MyMessageScreen extends StatefulWidget {
 class _MyMessageScreenState extends State<MyMessageScreen> {
   @override
   Widget build(BuildContext context) {
+     debugPrint("MyMessageScreen is being built");
     return SingleChildScrollView(
       child: Container(
         color: Colors.white,
@@ -98,7 +99,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                                   color: AppColors.praimeryButtonColor),
                               child: const Icon(
                                 Icons.search,
-                                color: Colors.white,
+                                color:Colors.white,
                               ),
                             ),
                             const SizedBox(
@@ -110,7 +111,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                       hintStyle: const TextStyle(color: Color(0xff9D9FA0)),
                       hintText: 'Search here',
                       filled: true,
-                      fillColor: const Color(0xffF6F7FA),
+                      fillColor:AppColors.disactiveButtonColor,
                       border: OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(5.5))),

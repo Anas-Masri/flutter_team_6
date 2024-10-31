@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_7/constants/app_colors.dart';
-
+import 'package:task_7/views/my_message_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -13,7 +13,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.disactiveButtonColor,
       body: Padding(
         padding: const EdgeInsets.only(top: 45, bottom: 0),
         child: Align(
@@ -24,7 +24,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               Image.asset('assets/images/Group 83(1).png'),
               const SizedBox(height: 10),
-
               const Text(
                 'community',
                 textAlign: TextAlign.center,
@@ -35,9 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   color: Colors.black,
                 ),
               ),
-
               const SizedBox(height: 150),
-
               const Text(
                 'Welcome to Our Community',
                 textAlign: TextAlign.center,
@@ -48,9 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   color: Colors.black,
                 ),
               ),
-
               const SizedBox(height: 10),
-
               const Text(
                 'Best and popular apps for live education \ncourse from home',
                 textAlign: TextAlign.center,
@@ -61,33 +56,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   color: Colors.grey,
                 ),
               ),
-
               const SizedBox(height: 50),
-
               InkWell(
                 onTap: () {
+                 
                 },
                 child: Container(
                   width: 309,
                   height: 52,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color:AppColors.praimeryButtonColor,
-                    
+                    color: AppColors.praimeryButtonColor,
                   ),
                   child: Center(
-                    child: Text('Get started',style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),),
+                    child: Text(
+                      'Get started',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.disactiveButtonColor,
+                      ),
+                    ),
                   ),
                 ),
-              
-    ),
-    
-             
+              ),
             ],
           ),
         ),

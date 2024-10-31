@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_7/views/home_page_view.dart';
+import 'package:task_7/views/my_message_screen.dart';
 import 'package:task_7/views/onboarding_screen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OnboardingScreen(),
+      home: MyMessageScreen(),
     );
   }
 }
