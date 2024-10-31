@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:task_7/constants/app_colors.dart';
@@ -84,7 +83,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
             children: [
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 15, vertical: 26),
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 26),
                 child: TextFormField(
                   decoration: InputDecoration(
                       suffixIcon: SizedBox(
@@ -125,7 +124,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   title: 'Roger Hulg',
                   image: 'assets/images/Avatar 4.png',
                   subTitle:
-                  'Hey, can i ask something? i need your help please'),
+                      'Hey, can i ask something? i need your help please'),
               const MessageItemBuilderWidget(
                   time: 'Yesterday  ',
                   isNotRead: false,
@@ -141,7 +140,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   title: 'Erick Lawrence',
                   image: 'assets/images/Avatar 8.png',
                   subTitle:
-                  'Did you take the free illustration class yesterday?'),
+                      'Did you take the free illustration class yesterday?'),
               const MessageItemBuilderWidget(
                   time: '2 week ago  ',
                   isNotRead: true,
@@ -150,8 +149,15 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                   title: 'Jennifer Dunn',
                   image: 'assets/images/Avatar.png',
                   subTitle:
-                  'Hey Samuel, where did you get your point? can we exchange?'),
-
+                      'Hey Samuel, where did you get your point? can we exchange?'),
+              const MessageItemBuilderWidget(
+                  time: '14/08/20  ',
+                  isNotRead: true,
+                  numberOfMasseges: 2,
+                  isOnline: true,
+                  title: 'Andy Warhol',
+                  image: 'assets/images/Avatar11.png',
+                  subTitle: 'that’s true bro, hahaha'),
             ],
           ),
         ]),
