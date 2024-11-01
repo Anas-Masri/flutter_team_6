@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_7/views/customtextfield';
+import 'package:task_7/views/custom_text_field1.dart';
 import 'package:task_7/widgets/time_avilable_widget.dart';
 
-class HomePageView extends StatefulWidget {
-  const HomePageView({super.key});
+class BottomSheets extends StatefulWidget {
+  const BottomSheets({super.key});
 
   @override
-  State<HomePageView> createState() => _HomePageViewState();
+  State<BottomSheets> createState() => _BottomSheetStates();
 }
 
-class _HomePageViewState extends State<HomePageView> {
+class _BottomSheetStates extends State<BottomSheets> {
   final TextEditingController _controller = TextEditingController();
   final bool _isSelected = false;
   PageController controller = PageController();
