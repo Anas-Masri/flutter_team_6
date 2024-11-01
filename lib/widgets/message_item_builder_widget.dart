@@ -128,7 +128,7 @@ class MessageItemBuilderWidget extends StatelessWidget {
           ],
         ),
         const Divider(
-          color: Color(0xffeeeeee),
+          color: Colors.grey,
           endIndent: 20,
           indent: 67,
         )
