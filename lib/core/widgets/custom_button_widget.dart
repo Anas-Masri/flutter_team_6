@@ -1,24 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:task_7/core/constants/app_colors.dart';
 
 class CustomButtonWidget extends StatelessWidget {
-  const CustomButtonWidget({super.key, required this.text, this.onTap});
-  final String text;
+
+  const CustomButtonWidget(
+      {super.key,
+      this.onTap,
+      required this.text,
+      required this.textColor,
+      required this.color,
+      this.hasShadow = false,
+      this.icon = const SizedBox(),
+      this.hasIcon = false});
   final void Function()? onTap;
+  final String text;
+  final Color textColor;
+  final Color color;
+  final Widget icon;
+  final bool hasShadow;
+  final bool hasIcon;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        width: 310,
-        height: 51,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7.5),
-            color: AppColors.praimeryButtonColor),
-        child: Text(
-          text,
-          style: const TextStyle(color: Colors.white),
+
+        width: MediaQuery.of(context).size.width / 338 * 310,
+        height: MediaQuery.of(context).size.height / 732 * 50.5,
+        decoration: BoxDecoration(boxShadow: [
+          hasShadow
+              ? BoxShadow(
+                  blurRadius: 12.63,
+                  offset: const Offset(0, 4.5),
+                  color: const Color(0xEC5F5F40).withOpacity(0.25))
+              : const BoxShadow()
+        ], borderRadius: BorderRadius.circular(7.5), color: color),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            hasIcon ? icon : const SizedBox(),
+            hasIcon
+                ? const SizedBox(
+                    width: 14,
+                  )
+                : const SizedBox(),
+            Text(
+              text,
+              style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.5,
+                  fontFamily: 'Poppins'),
+            ),
+          ],
+
         ),
       ),
     );
