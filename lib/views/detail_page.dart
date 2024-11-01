@@ -22,6 +22,8 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: CustomButtonWidget(
+          color: AppColors.praimeryButtonColor,
+          textColor: Colors.white,
           text: 'Follow class',
           onTap: () {},
         ),
@@ -211,6 +213,9 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                             ],
                           ),
+                        ),
+                        const SizedBox(
+                          height: 7,
                         ),
                         const SizedBox(
                           width: 80,

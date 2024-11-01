@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/widgets/svg_color_mapper.dart';
 
 class VideoCallWidget extends StatelessWidget {
   const VideoCallWidget({super.key, required this.image});
@@ -53,17 +54,18 @@ class VideoCallWidget extends StatelessWidget {
               top: 55,
               left: 55,
               child: Container(
-                  height: 21,
-                  width: 21,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 3.7, vertical: 3.6),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 1.8, color: Colors.white),
-                      borderRadius: BorderRadius.circular(50),
-                      color: const Color(0xff4DC9D1)),
-                  child: SvgPicture.asset(
-                    'assets/svgs/video_icon.svg',
-                  )))
+                height: 21,
+                width: 21,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 3.7, vertical: 3.6),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1.8, color: Colors.white),
+                    borderRadius: BorderRadius.circular(50),
+                    color: const Color(0xff4DC9D1)),
+                child: SvgPicture(SvgAssetLoader('assets/svgs/Video_icon.svg',
+                    colorMapper: SvgColorMapper(
+                        fromColor: Colors.white, toColor: Colors.white))),
+              ))
         ],
       ),
     );
