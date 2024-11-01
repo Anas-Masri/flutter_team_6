@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:task_7/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/views/log_in_page.dart';
 import 'package:task_7/views/my_message_page.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +61,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MyMessageScreen(),
+                      builder: (context) => const LogInPage(),
                     ));
               },
               child: Container(

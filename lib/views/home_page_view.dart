@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_7/views/home_page.dart';
 import 'package:task_7/views/map_page.dart';
+import 'package:task_7/views/my_message_page.dart';
 import 'package:task_7/views/profile_page.dart';
 import 'package:task_7/core/widgets/bottom_nav_bar_widget.dart';
 
@@ -27,7 +28,7 @@ class _HomePageViewState extends State<HomePageView> {
         children: const [
           Homepage(),
           MapPage(),
-          //   MyMessageScreen(),
+          MyMessageScreen(),
           ProfilePage(),
         ],
       ),

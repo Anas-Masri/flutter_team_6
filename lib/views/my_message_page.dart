@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_7/constants/app_colors.dart';
-import 'package:task_7/constants/app_svg_icon.dart';
-import 'package:task_7/widgets/message_item_builder_widget.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_svg_icon.dart';
+import 'package:task_7/core/widgets/message_item_builder_widget.dart';
 
 class MyMessageScreen extends StatefulWidget {
   const MyMessageScreen({super.key});
@@ -113,7 +113,7 @@ class _MyMessageScreenState extends State<MyMessageScreen> {
                         hintStyle: const TextStyle(color: Color(0xff9D9FA0)),
                         hintText: 'Search here',
                         filled: true,
-                        fillColor: AppColors.disactiveButtonColor,
+                        fillColor: AppColors.textFormFieldBackgroundColor,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(5.5))),
