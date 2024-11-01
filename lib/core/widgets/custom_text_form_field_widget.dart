@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class CustomTextFormFieldWidget extends StatefulWidget {
   const CustomTextFormFieldWidget({
     super.key,
-    required this.fullName,
+    required this.controller,
     required this.hintText,
     this.isPassword = false,
   });
 
-  final TextEditingController fullName;
+  final TextEditingController controller;
   final String hintText;
   final bool isPassword;
   @override
@@ -23,7 +23,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: !isVisible,
-      controller: widget.fullName,
+      controller: widget.controller,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         suffixIcon: widget.isPassword

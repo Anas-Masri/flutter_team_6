@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/views/log_in_page.dart';
-import 'package:task_7/views/my_message_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});

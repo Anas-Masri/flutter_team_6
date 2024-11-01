@@ -38,7 +38,7 @@ class _LogInPageState extends State<LogInPage> {
 
               // Email TextField
               CustomTextFormFieldWidget(
-                fullName: emailTextEditingController,
+                controller: emailTextEditingController,
                 hintText: 'Email',
               ),
 
@@ -47,7 +47,7 @@ class _LogInPageState extends State<LogInPage> {
               // Password TextField
               CustomTextFormFieldWidget(
                 isPassword: true,
-                fullName: passwordTextEditingController,
+                controller: passwordTextEditingController,
                 hintText: 'Password',
               ),
 

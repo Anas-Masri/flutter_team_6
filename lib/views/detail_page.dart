@@ -4,6 +4,7 @@ import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/position_container_text_widget.dart';
+import 'package:task_7/views/bottom_sheet.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -19,13 +20,24 @@ int selectedIndex = 0;
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: CustomButtonWidget(
           color: AppColors.praimeryButtonColor,
           textColor: Colors.white,
           text: 'Follow class',
-          onTap: () {},
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              builder: (BuildContext context) {
+                return BottomSheetWidget(
+                    screenHeight: screenHeight, screenWidth: screenWidth);
+              },
+            );
+          },
         ),
         backgroundColor: Colors.white,
         body: Padding(

@@ -37,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
               // Fullname TextField
               CustomTextFormFieldWidget(
-                fullName: fullNameTextEditingController,
+                controller: fullNameTextEditingController,
                 hintText: 'Fullname',
               ),
 
@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
               // Email TextField
               CustomTextFormFieldWidget(
-                fullName: emailTextEditingController,
+                controller: emailTextEditingController,
                 hintText: 'Email',
               ),
 
@@ -54,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
               // Password TextField
               CustomTextFormFieldWidget(
                 isPassword: true,
-                fullName: passwordTextEditingController,
+                controller: passwordTextEditingController,
                 hintText: 'Password',
               ),
 
