@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_7/homepage.dart';
-import 'package:task_7/views/my_message_screen.dart';
+import 'package:task_7/views/my_message_page.dart';
 import 'package:task_7/widgets/bottom_nav_bar_widget.dart';
 
 class HomePageView extends StatefulWidget {
