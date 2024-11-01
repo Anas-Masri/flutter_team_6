@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomButtonWidget extends StatelessWidget {
+<<<<<<< HEAD
+=======
+
+>>>>>>> b17335f0a5aacd6572a614c4dec42464d70fd6de
   const CustomButtonWidget(
       {super.key,
       this.onTap,
@@ -17,12 +21,20 @@ class CustomButtonWidget extends StatelessWidget {
   final Widget icon;
   final bool hasShadow;
   final bool hasIcon;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b17335f0a5aacd6572a614c4dec42464d70fd6de
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
+<<<<<<< HEAD
+=======
+
+>>>>>>> b17335f0a5aacd6572a614c4dec42464d70fd6de
         width: MediaQuery.of(context).size.width / 338 * 310,
         height: MediaQuery.of(context).size.height / 732 * 50.5,
         decoration: BoxDecoration(boxShadow: [
@@ -51,6 +63,10 @@ class CustomButtonWidget extends StatelessWidget {
                   fontFamily: 'Poppins'),
             ),
           ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> b17335f0a5aacd6572a614c4dec42464d70fd6de
         ),
       ),
     );
