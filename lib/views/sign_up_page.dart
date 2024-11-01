@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/custom_text_form_field_widget.dart';
+import 'package:task_7/views/home_page_view.dart';
 import 'package:task_7/views/log_in_page.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -65,7 +66,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 text: 'Sign Up',
                 color: AppColors.praimeryButtonColor,
                 textColor: Colors.white,
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePageView(),
+                      ));
+                },
               ),
               const SizedBox(height: 27),
 
