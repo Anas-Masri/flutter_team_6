@@ -59,7 +59,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               const SizedBox(height: 50),
               InkWell(
                 onTap: () {
-                 
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => MyMessageScreen()));
                 },
                 child: Container(
                   width: 309,
