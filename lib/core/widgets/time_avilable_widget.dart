@@ -50,7 +50,7 @@ class _TimeAvilableWidgetState extends State<TimeAvilableWidget> {
                 borderRadius: BorderRadius.circular(7),
                 color: const Color(0xffEEEEEE)),
         child: Text(
-          '${widget.time} Am',
+          widget.time,
           style: widget.isAvailable
               ? isSelected
                   ? const TextStyle(
