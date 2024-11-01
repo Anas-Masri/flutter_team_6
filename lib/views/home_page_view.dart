@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_7/views/homepage.dart';
+import 'package:task_7/views/home_page.dart';
 import 'package:task_7/views/map_page.dart';
 import 'package:task_7/views/profile_page.dart';
 import 'package:task_7/core/widgets/bottom_nav_bar_widget.dart';

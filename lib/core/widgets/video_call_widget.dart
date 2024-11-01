@@ -11,8 +11,8 @@ class VideoCallWidget extends StatelessWidget {
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(21.65), boxShadow: [
         BoxShadow(
-            spreadRadius: -10,
-            blurRadius: 25,
+            spreadRadius: -8,
+            blurRadius: 12,
             offset: const Offset(0, 4.5),
             color: AppColors.praimeryButtonColor.withOpacity(.25))
       ]),

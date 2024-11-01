@@ -5,3 +5,9 @@ List<String> imageList = [
   'assets/images/image4.jfif',
   'assets/images/image5.jfif',
 ];
+List<String> categorylist = [
+  'All',
+  'UI/UX',
+  'Illustration',
+  '3D Animation',
+];
