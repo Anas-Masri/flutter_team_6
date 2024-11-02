@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/views/home_page.dart';
 import 'package:task_7/views/map_page.dart';
 import 'package:task_7/views/my_message_page.dart';
@@ -22,16 +23,24 @@ class _HomePageViewState extends State<HomePageView> {
       bottomNavigationBar: BottomNavBarWidget(
         controller: controller,
       ),
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: controller,
-        children: const [
-          Homepage(),
-          MapPage(),
-          MyMessageScreen(),
-          ProfilePage(),
-        ],
-      ),
+      body: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          children: [
+            SizedBox(
+              height: 750.h,
+              child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: controller,
+                children: const [
+                  Homepage(),
+                  MapPage(),
+                  MyMessageScreen(),
+                  ProfilePage(),
+                ],
+              ),
+            ),
+          ]),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 
 class PositionContainerTextWidget extends StatelessWidget {
   const PositionContainerTextWidget({
@@ -24,34 +27,34 @@ class PositionContainerTextWidget extends StatelessWidget {
             left: left,
             child: Container(
               alignment: Alignment.center,
-              height: 17,
+              height: 17.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(radius), color: color),
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Text(
                 text,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 9,
+                style: TextStyle(
+                    color: AppColors.whiteTextColor,
+                    fontSize: 9.sp,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'Poppins'),
+                    fontFamily: AppFonts.poppins),
               ),
             ),
           )
         : Container(
             margin: const EdgeInsets.only(right: 10),
             alignment: Alignment.center,
-            height: 17,
+            height: 17.h,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(radius), color: color),
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Text(
               text,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 9,
+              style: TextStyle(
+                  color: AppColors.whiteTextColor,
+                  fontSize: 9.sp,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'Poppins'),
+                  fontFamily: AppFonts.poppins),
             ),
           );
   }

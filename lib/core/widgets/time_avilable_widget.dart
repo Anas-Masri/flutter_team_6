@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 
+// ignore: must_be_immutable
 class TimeAvilableWidget extends StatefulWidget {
-  const TimeAvilableWidget({
+  TimeAvilableWidget({
     super.key,
     required this.isAvailable,
     required this.time,
+    this.isSelected = false,
   });
   final bool isAvailable;
   final String time;
+  bool isSelected;
+
   @override
   State<TimeAvilableWidget> createState() => _TimeAvilableWidgetState();
 }
-
-bool isSelected = false;
 
 class _TimeAvilableWidgetState extends State<TimeAvilableWidget> {
   @override
@@ -21,16 +24,16 @@ class _TimeAvilableWidgetState extends State<TimeAvilableWidget> {
     return InkWell(
       onTap: () {
         if (widget.isAvailable) {
-          isSelected = !isSelected;
+          widget.isSelected = !widget.isSelected;
           setState(() {});
         }
       },
       child: Container(
         alignment: Alignment.center,
-        width: 85,
-        height: 37,
+        width: 85.w,
+        height: 37.h,
         decoration: widget.isAvailable
-            ? isSelected
+            ? widget.isSelected
                 ? BoxDecoration(
                     boxShadow: [
                         BoxShadow(
@@ -44,21 +47,24 @@ class _TimeAvilableWidgetState extends State<TimeAvilableWidget> {
                 : BoxDecoration(
                     border: Border.all(color: AppColors.praimeryButtonColor),
                     borderRadius: BorderRadius.circular(7),
-                    color: Colors.white)
+                    color: AppColors.whiteButtonColor)
             : BoxDecoration(
-                border: Border.all(color: const Color(0xffC7C9D9)),
+                border: Border.all(color: AppColors.disactiveButtonColor),
                 borderRadius: BorderRadius.circular(7),
-                color: const Color(0xffEEEEEE)),
+                color: AppColors.disactiveIndicatorColor),
         child: Text(
           widget.time,
           style: widget.isAvailable
-              ? isSelected
-                  ? const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w500)
-                  : const TextStyle(
-                      color: Color(0xffFF8500), fontWeight: FontWeight.w500)
-              : const TextStyle(
-                  color: Color(0xffC7C9D9), fontWeight: FontWeight.w500),
+              ? widget.isSelected
+                  ? TextStyle(
+                      color: AppColors.whiteTextColor,
+                      fontWeight: FontWeight.w500)
+                  : TextStyle(
+                      color: AppColors.praimeryButtonColor,
+                      fontWeight: FontWeight.w500)
+              : TextStyle(
+                  color: AppColors.disactiveButtonColor,
+                  fontWeight: FontWeight.w500),
         ),
       ),
     );

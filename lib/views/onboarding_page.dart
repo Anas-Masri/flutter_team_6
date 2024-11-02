@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/views/log_in_page.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -21,40 +23,40 @@ class _OnboardingPageState extends State<OnboardingPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/Group 83(1).png'),
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: 10.h),
+            Text(
               'community',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Poppins2',
-                fontSize: 30,
-                fontWeight: FontWeight.w300,
+                fontFamily: AppFonts.poppinsLite,
+                fontSize: 27.sp,
+                fontWeight: FontWeight.w200,
                 color: Colors.black,
               ),
             ),
-            const SizedBox(height: 150),
-            const Text(
+            SizedBox(height: 150.h),
+            Text(
               'Welcome to Our Community',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
+                fontFamily: AppFonts.poppins,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
             ),
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: 10.h),
+            Text(
               'Best and popular apps for live education \ncourse from home',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 14,
+                fontFamily: AppFonts.poppins,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: Colors.grey,
               ),
             ),
-            const SizedBox(height: 50),
+            SizedBox(height: 50.h),
             InkWell(
               onTap: () {
                 Navigator.pushReplacement(
@@ -64,18 +66,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     ));
               },
               child: Container(
-                width: 309,
-                height: 52,
+                width: 309.w,
+                height: 52.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   color: AppColors.praimeryButtonColor,
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     'Get started',
                     style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontFamily: AppFonts.poppins,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/position_container_text_widget.dart';
-import 'package:task_7/views/bottom_sheet.dart';
+import 'package:task_7/core/widgets/bottom_sheet.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -20,26 +22,23 @@ int selectedIndex = 0;
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: CustomButtonWidget(
           color: AppColors.praimeryButtonColor,
-          textColor: Colors.white,
+          textColor: AppColors.whiteTextColor,
           text: 'Follow class',
           onTap: () {
             showModalBottomSheet(
               context: context,
               isScrollControlled: true,
               builder: (BuildContext context) {
-                return BottomSheetWidget(
-                    screenHeight: screenHeight, screenWidth: screenWidth);
+                return const BottomSheetWidget();
               },
             );
           },
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.backgroundColor,
         body: Padding(
           padding: const EdgeInsets.only(top: 66, left: 14, right: 14),
           child: Column(
@@ -54,7 +53,7 @@ class _DetailPageState extends State<DetailPage> {
                       padding: const EdgeInsets.all(9),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7),
-                          color: const Color(0xffF6F7FA)),
+                          color: AppColors.greyButtonColor),
                       child: Icon(
                         Icons.arrow_back_ios_new,
                         color: AppColors.praimeryButtonColor,
@@ -62,12 +61,12 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                   const Spacer(),
-                  const Text(
+                  Text(
                     'Detail course',
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        fontFamily: 'Poppins'),
+                        fontFamily: AppFonts.poppins),
                   ),
                   const SizedBox(
                     width: 10,
@@ -76,19 +75,19 @@ class _DetailPageState extends State<DetailPage> {
                   Stack(
                     children: [
                       SizedBox(
-                          height: 20,
-                          width: 18,
+                          height: 20.h,
+                          width: 18.w,
                           child: SvgPicture.asset(AppSvgIcon.notification)),
                       Positioned(
                         top: 0,
                         right: 0,
                         child: Container(
-                          width: 5.5,
-                          height: 5.5,
+                          width: 5.5.w,
+                          height: 5.5.h,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: Colors.white,
-                                  width: 1.35,
+                                  color: AppColors.iconBorderColor,
+                                  width: 1.35.w,
                                   strokeAlign: BorderSide.strokeAlignOutside),
                               borderRadius: BorderRadius.circular(8),
                               color: AppColors.praimeryButtonColor),
@@ -98,14 +97,15 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 37,
+              SizedBox(
+                height: 37.h,
               ),
               Stack(
+                alignment: Alignment.center,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width / 338 * 309,
-                    height: MediaQuery.of(context).size.height / 732 * 207,
+                    width: 309.w,
+                    height: 207.h,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(21),
                       child: Image.asset(
@@ -114,128 +114,171 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     ),
                   ),
+                  Container(
+                    width: 309.w,
+                    height: 207.h,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(21),
+                        gradient: LinearGradient(
+                            colors: [
+                              Colors.black.withOpacity(0.7),
+                              Colors.black.withOpacity(0.3),
+                              Colors.transparent,
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter)),
+                  ),
+                  Container(
+                    height: 70.h,
+                    width: 70.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(65),
+                        color: Colors.white.withOpacity(0.45)),
+                  ),
+                  Icon(
+                    color: Colors.white,
+                    Icons.play_circle,
+                    size: 65.r,
+                  ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
-              const Row(
+              Row(
                 children: [
                   SizedBox(
-                    width: 250,
+                    width: 250.w,
                     child: Text(
                       textAlign: TextAlign.left,
                       'Step design sprint for beginner',
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 21,
-                          fontFamily: 'Poppins'),
+                          fontSize: 21.sp,
+                          fontFamily: AppFonts.poppins),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 15.h,
               ),
-              const Row(
+              Row(
                 children: [
                   PositionContainerTextWidget(
                     insideStack: false,
                     radius: 3.6,
-                    color: Color(0xff4DC9D1),
+                    color: AppColors.cyanContainerColor,
                     text: '6 lessons',
                   ),
                   PositionContainerTextWidget(
                     insideStack: false,
                     radius: 3.6,
-                    color: Color(0xff0082CD),
+                    color: AppColors.blueContainerColor,
                     text: 'Design',
                   ),
                   PositionContainerTextWidget(
                     insideStack: false,
                     radius: 3.6,
-                    color: Color(0xff8D5EF2),
+                    color: AppColors.purpleContainerColor,
                     text: 'free',
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 6,
+              SizedBox(
+                height: 6.h,
               ),
-              const Text(
+              Text(
                   style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xff9D9FA0),
-                      fontSize: 12.5,
+                      fontFamily: AppFonts.poppins,
+                      color: AppColors.subtitleTextColor,
+                      fontSize: 12.5.sp,
                       fontWeight: FontWeight.w400),
                   '''In this course I'll show the step by step, day by day process to build better products, just as Google, Slack, KLM and manu other do.'''),
               ListTile(
-                leading: const SizedBox(
+                leading: SizedBox(
                   width: 50,
-                  child: Align(
-                    alignment: Alignment(-4, 0),
-                    child: CircleAvatar(
-                      backgroundImage:
-                          AssetImage('assets/images/profile_image.jfif'),
-                    ),
+                  child: Stack(
+                    children: [
+                      const Align(
+                        alignment: Alignment(-4, 0),
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/profile_image.jfif'),
+                        ),
+                      ),
+                      Positioned(
+                          right: 25,
+                          bottom: 8,
+                          child: Container(
+                            width: 9.w,
+                            height: 9.h,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.iconBorderColor,
+                                    width: 1.35),
+                                color: AppColors.onlineColor,
+                                borderRadius: BorderRadius.circular(25)),
+                          ))
+                    ],
                   ),
                 ),
-                title: const Align(
-                  alignment: Alignment(-1.5, 0),
+                title: Align(
+                  alignment: const Alignment(-2.8, 0),
                   child: Text(
                     'Laurel Seilha',
                     style: TextStyle(
                         color: Colors.black,
-                        fontFamily: 'Poppins',
+                        fontFamily: AppFonts.poppins,
                         fontWeight: FontWeight.w600,
-                        fontSize: 14),
+                        fontSize: 14.sp),
                   ),
                 ),
-                subtitle: const Align(
-                  alignment: Alignment(-1.5, 0),
+                subtitle: Align(
+                  alignment: const Alignment(-2, 0),
                   child: Text(
                     'Product Designer',
                     style: TextStyle(
-                        color: Color(0xff9D9FA0),
-                        fontFamily: 'Poppins',
+                        color: AppColors.subtitleTextColor,
+                        fontFamily: AppFonts.poppins,
                         fontWeight: FontWeight.w500,
-                        fontSize: 9),
+                        fontSize: 9.sp),
                   ),
                 ),
                 trailing: SizedBox(
-                  width: 100,
+                  width: 100.w,
                   child: Align(
                     alignment: const Alignment(4, 0),
                     child: Column(
                       children: [
                         SizedBox(
-                          width: 50,
-                          height: 20,
+                          width: 50.w,
+                          height: 20.h,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               SvgPicture.asset(AppSvgIcon.timeIcon),
-                              const Text(
+                              Text(
                                 ' 5h 21m',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xff8C8C8C),
-                                    fontSize: 9,
+                                    fontFamily: AppFonts.poppins,
+                                    color: const Color(0xff8C8C8C),
+                                    fontSize: 9.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 7,
+                        SizedBox(
+                          height: 7.h,
                         ),
-                        const SizedBox(
-                          width: 80,
-                          height: 21,
+                        SizedBox(
+                          width: 80.w,
+                          height: 21.h,
                           child: PositionContainerTextWidget(
                             insideStack: false,
                             radius: 18,
-                            color: Color(0xffFCCC75),
+                            color: AppColors.orangeContainerColor,
                             text: 'Free e-book',
                           ),
                         ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 
 class MessageItemBuilderWidget extends StatelessWidget {
   const MessageItemBuilderWidget(
@@ -27,11 +30,11 @@ class MessageItemBuilderWidget extends StatelessWidget {
             ListTile(
               title: Text(
                 title,
-                style: const TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Color(0xff303030),
+                style: TextStyle(
+                    fontFamily: AppFonts.poppins,
+                    color: AppColors.blackTextColor,
                     fontWeight: FontWeight.w600,
-                    fontSize: 14.4),
+                    fontSize: 14.4.sp),
               ),
               subtitle: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -40,17 +43,17 @@ class MessageItemBuilderWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 40,
+                        height: 40.h,
                         alignment: Alignment.topLeft,
-                        width: 215,
+                        width: 215.w,
                         child: Text(
                           subTitle,
                           maxLines: 2,
-                          style: const TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 12.6,
+                          style: TextStyle(
+                            fontFamily: AppFonts.poppins,
+                            fontSize: 12.6.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff8C8C8C),
+                            color: const Color(0xff8C8C8C),
                           ),
                         ),
                       ),
@@ -59,32 +62,35 @@ class MessageItemBuilderWidget extends StatelessWidget {
                 ],
               ),
               leading: Stack(
+                alignment: Alignment.topCenter,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage(image),
-                      ),
-                    ],
+                  Container(
+                    height: 35.r,
+                    width: 35.r,
+                    decoration: BoxDecoration(
+                        color: AppColors.greyButtonColor,
+                        borderRadius: BorderRadius.circular(7)),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage(image),
+                    ),
                   ),
-                  Positioned(
-                    top: 30,
-                    left: 30,
-                    child: isOnline
-                        ? Container(
-                            width: 9,
-                            height: 9,
+                  isOnline
+                      ? Positioned(
+                          top: 30,
+                          left: 30,
+                          child: Container(
+                            width: 9.w,
+                            height: 9.h,
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                    width: 1.34,
-                                    color: Colors.white,
+                                    width: 1.34.w,
+                                    color: AppColors.iconBorderColor,
                                     strokeAlign: BorderSide.strokeAlignOutside),
                                 borderRadius: BorderRadius.circular(9),
-                                color: Colors.green),
-                          )
-                        : const SizedBox(),
-                  )
+                                color: AppColors.onlineColor),
+                          ),
+                        )
+                      : const SizedBox()
                 ],
               ),
             ),
@@ -95,15 +101,15 @@ class MessageItemBuilderWidget extends StatelessWidget {
                   children: [
                     Text(
                       time,
-                      style: const TextStyle(
-                          color: Color(0xffC7C9D9),
-                          fontFamily: 'Poppins2',
+                      style: TextStyle(
+                          color: AppColors.grayTextColor,
+                          fontFamily: AppFonts.poppins,
                           fontWeight: FontWeight.w400),
                     ),
-                    const Icon(
+                    Icon(
                       Icons.arrow_back_ios,
-                      color: Color(0xffC7C9D9),
-                      size: 21,
+                      color: AppColors.disactiveButtonColor,
+                      size: 21.r,
                     )
                   ],
                 )),
@@ -113,24 +119,24 @@ class MessageItemBuilderWidget extends StatelessWidget {
               child: isNotRead
                   ? Container(
                       alignment: Alignment.center,
-                      height: 21.5,
-                      width: 21.5,
+                      height: 21.5.h,
+                      width: 21.5.w,
                       decoration: BoxDecoration(
-                          color: const Color(0xff0082CD),
+                          color: AppColors.blueContainerColor,
                           borderRadius: BorderRadius.circular(25)),
                       child: Text(
                         '$numberOfMasseges',
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: AppColors.whiteTextColor),
                       ),
                     )
                   : const SizedBox(),
             ),
           ],
         ),
-        const Divider(
-          color: Color(0xffeeeeee),
-          endIndent: 20,
-          indent: 67,
+        Divider(
+          color: AppColors.disactiveIndicatorColor,
+          endIndent: 20.w,
+          indent: 67.w,
         )
       ],
     );

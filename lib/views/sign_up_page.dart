@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/custom_text_form_field_widget.dart';
 import 'package:task_7/views/home_page_view.dart';
@@ -21,19 +23,19 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 71),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 71).r,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/focal.png',
-                width: 50,
-                height: 60,
+                width: 50.w,
+                height: 60.h,
               ), // Logo
               // Replace with your logo
 
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
 
               // Fullname TextField
               CustomTextFormFieldWidget(
@@ -41,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: 'Fullname',
               ),
 
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Email TextField
               CustomTextFormFieldWidget(
@@ -49,7 +51,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: 'Email',
               ),
 
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Password TextField
               CustomTextFormFieldWidget(
@@ -58,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: 'Password',
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Sign Up Button
               CustomButtonWidget(
@@ -74,101 +76,104 @@ class _SignUpPageState extends State<SignUpPage> {
                       ));
                 },
               ),
-              const SizedBox(height: 27),
+              SizedBox(height: 27.h),
 
               // OR divider
-              const Row(
+              Row(
                 children: [
-                  Expanded(child: Divider()),
+                  const Expanded(child: Divider()),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Text(
                       'or',
                       style: TextStyle(
-                          fontSize: 14.5,
+                          fontSize: 14.5.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Poppins'),
+                          fontFamily: AppFonts.poppins),
                     ),
                   ),
-                  Expanded(child: Divider()),
+                  const Expanded(child: Divider()),
                 ],
               ),
 
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Facebook Login Button
-              const CustomButtonWidget(
+              CustomButtonWidget(
                 hasIcon: true,
                 icon: Icon(
                   Icons.facebook,
-                  color: Colors.white,
+                  color: AppColors.whiteTextColor,
                 ),
                 text: 'Log in with Facebook',
-                textColor: Colors.white,
-                color: Color(0xff0082CD),
+                textColor: AppColors.whiteTextColor,
+                color: AppColors.blueTextColor,
               ),
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Google Login Button
               CustomButtonWidget(
+                hasBorder: true,
                 hasIcon: true,
                 icon: Image.asset(
                   'assets/images/google.png',
                 ),
                 text: 'Log in with Google',
-                textColor: const Color(0xff303030),
-                color: const Color(0xffF6F7FA),
+                textColor: AppColors.subtitleTextColor,
+                color: AppColors.greyButtonColor,
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Terms of Service and Privacy Policy
-              const Text.rich(
+              Text.rich(
                 TextSpan(
                   text: 'By signing up you accept the ',
-                  style: TextStyle(color: Color(0xff9D9FA0), fontSize: 12.6),
+                  style: TextStyle(
+                      color: AppColors.subtitleTextColor, fontSize: 12.6.sp),
                   children: [
                     TextSpan(
                       text: 'Terms of Service',
-                      style:
-                          TextStyle(color: Color(0xff0082CD), fontSize: 12.6),
+                      style: TextStyle(
+                          color: AppColors.blueTextColor, fontSize: 12.6.sp),
                     ),
                     TextSpan(
                       text: '\n and ',
-                      style:
-                          TextStyle(color: Color(0xff9D9FA0), fontSize: 12.6),
+                      style: TextStyle(
+                          color: AppColors.subtitleTextColor,
+                          fontSize: 12.6.sp),
                     ),
                     TextSpan(
                       text: 'Privacy Policy',
-                      style:
-                          TextStyle(color: Color(0xff0082CD), fontSize: 12.6),
+                      style: TextStyle(
+                          color: AppColors.blueTextColor, fontSize: 12.6.sp),
                     ),
                   ],
                 ),
                 textAlign: TextAlign.center,
               ),
 
-              const SizedBox(height: 38),
+              SizedBox(height: 38.h),
 
               // Log in link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'Already have an account?',
                     style: TextStyle(
-                        color: Color(0xff9D9FA0),
+                        color: AppColors.subtitleTextColor,
                         fontWeight: FontWeight.w500,
-                        fontSize: 14.5),
+                        fontSize: 14.5.sp),
                   ),
                   InkWell(
-                    child: const Text(
+                    child: Text(
                       ' Log in',
                       style: TextStyle(
-                          color: Color(0xff0082CD),
+                          color: AppColors.blueTextColor,
                           fontWeight: FontWeight.w500,
-                          fontSize: 14.5),
+                          fontSize: 14.5.sp),
                     ),
                     onTap: () {
                       Navigator.pushReplacement(

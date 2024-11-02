@@ -9,4 +9,5 @@ class AppSvgIcon {
   static String profile = 'assets/svgs/profile.svg';
   static String videoIcon = 'assets/svgs/video_icon.svg';
   static String timeIcon = 'assets/svgs/stopwatch.svg';
+  static String cheakIcon = 'assets/svgs/Fill 4.svg';
 }

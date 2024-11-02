@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_7/core/widgets/time_avilable_widget.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_svg_icon.dart';
 
 class CheakBoxWidget extends StatefulWidget {
   const CheakBoxWidget({
@@ -10,6 +12,8 @@ class CheakBoxWidget extends StatefulWidget {
   @override
   State<CheakBoxWidget> createState() => _CheakBoxWidgetState();
 }
+
+bool isSelected = false;
 
 class _CheakBoxWidgetState extends State<CheakBoxWidget> {
   @override
@@ -21,13 +25,13 @@ class _CheakBoxWidgetState extends State<CheakBoxWidget> {
       },
       child: Container(
         alignment: Alignment.center,
-        width: 18,
-        height: 18,
+        width: 18.r,
+        height: 18.r,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: const Color(0xff9D9FA0).withOpacity(0.4)),
+            color: AppColors.subtitleTextColor.withOpacity(0.4)),
         child: isSelected
-            ? SvgPicture.asset('assets/svgs/Fill 4.svg')
+            ? SvgPicture.asset(AppSvgIcon.cheakIcon)
             : const SizedBox(),
       ),
     );

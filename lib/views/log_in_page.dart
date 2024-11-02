@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/custom_text_form_field_widget.dart';
 import 'package:task_7/views/home_page_view.dart';
@@ -20,21 +22,19 @@ class _LogInPageState extends State<LogInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 71),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 71).r,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 'assets/images/focal.png',
-                width: 50,
-                height: 60,
+                width: 50.w,
+                height: 60.h,
               ), // Logo
               // Replace with your logo
 
-              const SizedBox(height: 25),
-
-              const SizedBox(height: 13),
+              SizedBox(height: 25.h),
 
               // Email TextField
               CustomTextFormFieldWidget(
@@ -42,7 +42,7 @@ class _LogInPageState extends State<LogInPage> {
                 hintText: 'Email',
               ),
 
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Password TextField
               CustomTextFormFieldWidget(
@@ -51,7 +51,7 @@ class _LogInPageState extends State<LogInPage> {
                 hintText: 'Password',
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Sign Up Button
               CustomButtonWidget(
@@ -67,87 +67,86 @@ class _LogInPageState extends State<LogInPage> {
                       ));
                 },
               ),
-              const SizedBox(height: 27),
-              const Text(
+              SizedBox(height: 27.h),
+              Text(
                 'Forgot Password?',
                 style: TextStyle(
-                    color: Color(0xff0082CD),
-                    fontFamily: 'Poppins',
+                    color: AppColors.blueTextColor,
+                    fontFamily: AppFonts.poppins,
                     fontWeight: FontWeight.w500,
-                    fontSize: 14.5),
+                    fontSize: 14.5.sp),
               ),
 
-              const SizedBox(height: 39),
+              SizedBox(height: 39.h),
 
               // OR divider
-              const Row(
+              Row(
                 children: [
-                  Expanded(child: Divider()),
+                  const Expanded(child: Divider()),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Text(
                       'or',
                       style: TextStyle(
-                          fontSize: 14.5,
+                          fontSize: 14.5.sp,
                           fontWeight: FontWeight.w400,
-                          fontFamily: 'Poppins'),
+                          fontFamily: AppFonts.poppins),
                     ),
                   ),
-                  Expanded(child: Divider()),
+                  const Expanded(child: Divider()),
                 ],
               ),
 
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Facebook Login Button
-              const CustomButtonWidget(
+              CustomButtonWidget(
                 hasIcon: true,
-                icon: Icon(
+                icon: const Icon(
                   Icons.facebook,
                   color: Colors.white,
                 ),
                 text: 'Log in with Facebook',
                 textColor: Colors.white,
-                color: Color(0xff0082CD),
+                color: AppColors.blueTextColor,
               ),
-              const SizedBox(height: 13),
+              SizedBox(height: 13.h),
 
               // Google Login Button
               CustomButtonWidget(
+                hasBorder: true,
                 hasIcon: true,
                 icon: Image.asset(
                   'assets/images/google.png',
                 ),
                 text: 'Log in with Google',
-                textColor: const Color(0xff303030),
-                color: const Color(0xffF6F7FA),
+                textColor: AppColors.blackTextColor,
+                color: AppColors.greyButtonColor,
               ),
-
-              const SizedBox(height: 20),
 
               // Terms of Service and Privacy Policy
 
-              const SizedBox(height: 120),
+              SizedBox(height: 117.h),
 
               // Log in link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'Don’t have an account?',
                     style: TextStyle(
-                        color: Color(0xff9D9FA0),
+                        color: AppColors.subtitleTextColor,
                         fontWeight: FontWeight.w500,
-                        fontSize: 14.5),
+                        fontSize: 14.5.sp),
                   ),
                   InkWell(
-                    child: const Text(
+                    child: Text(
                       ' Sign Up',
                       style: TextStyle(
-                          color: Color(0xff0082CD),
+                          color: AppColors.blueTextColor,
                           fontWeight: FontWeight.w500,
-                          fontSize: 14.5),
+                          fontSize: 14.5.sp),
                     ),
                     onTap: () {
                       Navigator.pushReplacement(
@@ -155,9 +154,9 @@ class _LogInPageState extends State<LogInPage> {
                           MaterialPageRoute(
                               builder: (context) => const SignUpPage()));
                     },
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

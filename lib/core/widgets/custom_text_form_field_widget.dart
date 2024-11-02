@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_7/core/constants/app_colors.dart';
 
 class CustomTextFormFieldWidget extends StatefulWidget {
   const CustomTextFormFieldWidget({
@@ -36,14 +37,14 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
                   isVisible
                       ? Icons.visibility_outlined
                       : Icons.visibility_off_outlined,
-                  color: const Color(0xff9D9FA0),
+                  color: AppColors.subtitleTextColor,
                 ),
               )
             : const SizedBox(),
-        hintStyle: const TextStyle(color: Color(0xff9D9FA0)),
+        hintStyle: TextStyle(color: AppColors.subtitleTextColor),
         hintText: widget.hintText,
         filled: true,
-        fillColor: const Color(0xffF6F7FA),
+        fillColor: AppColors.textFormFieldBackgroundColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide.none,

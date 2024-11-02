@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/widgets/cheak_box_widget.dart';
+import 'package:task_7/core/widgets/custom_button_widget.dart';
 import 'package:task_7/core/widgets/custom_text_form_field_widget.dart';
 import 'package:task_7/core/widgets/time_avilable_widget.dart';
 
 class BottomSheetWidget extends StatelessWidget {
   const BottomSheetWidget({
     super.key,
-    required this.screenHeight,
-    required this.screenWidth,
   });
-
-  final double screenHeight;
-  final double screenWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenHeight * 0.77,
+      height: 585.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(21.5),
         color: Colors.white,
@@ -31,51 +30,46 @@ class BottomSheetWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Available time',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
+                        fontSize: 16.sp,
+                        fontFamily: AppFonts.poppins,
                       ),
                     ),
                     Text(
                       'Adjust to your schedule',
                       style: TextStyle(
-                        color: Color(0xff9d9fa0),
+                        color: AppColors.subtitleTextColor,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14.44,
+                        fontSize: 14.44.sp,
                       ),
                     ),
                   ],
                 ),
                 Container(
-                  width: screenWidth * 0.1,
-                  height: screenHeight * 0.053,
-                  decoration: const BoxDecoration(
-                    color: Color(0xff9d9fa0),
-                    borderRadius: BorderRadius.all(Radius.circular(7.22)),
+                  alignment: Alignment.center,
+                  width: 40.r,
+                  height: 40.r,
+                  padding: const EdgeInsets.only(left: 3, top: 5),
+                  decoration: BoxDecoration(
+                    color: AppColors.subtitleTextColor,
+                    borderRadius: BorderRadius.circular(7.22),
                   ),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 3.5, top: 3),
-                      child: SvgPicture.asset(
-                        alignment: Alignment.center,
-                        'assets/svgs/calendar.svg',
-                        width: screenWidth * 0.07,
-                        height: screenHeight * 0.037,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  child: SvgPicture.asset(
+                    alignment: Alignment.center,
+                    'assets/svgs/calendar.svg',
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: screenHeight * 0.045,
+              height: 15.h,
             ),
             Expanded(
               child: GridView.builder(
@@ -116,21 +110,24 @@ class BottomSheetWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
+              height: 19.h,
+            ),
+            SizedBox(
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Email',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 12.63,
-                      fontFamily: 'Poppins',
+                      fontSize: 12.63.sp,
+                      fontFamily: AppFonts.poppins,
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.004,
+                    height: 3.h,
                   ),
                   CustomTextFormFieldWidget(
                     controller: TextEditingController(),
@@ -140,7 +137,7 @@ class BottomSheetWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.02,
+              height: 12.6.h,
             ),
             SizedBox(
               width: double.infinity,
@@ -148,16 +145,16 @@ class BottomSheetWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Telp number',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 12.63,
-                      fontFamily: 'Poppins',
+                      fontSize: 12.63.sp,
+                      fontFamily: AppFonts.poppins,
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.004,
+                    height: 3.h,
                   ),
                   CustomTextFormFieldWidget(
                     controller: TextEditingController(),
@@ -167,59 +164,49 @@ class BottomSheetWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.02,
+              height: 13.h,
             ),
-            const Align(
+            Align(
               alignment: Alignment.topLeft,
               child: Text(
                 'Schedule date & time',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 12.63,
-                  fontFamily: 'Poppins',
+                  fontSize: 12.63.sp,
+                  fontFamily: AppFonts.poppins,
                 ),
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.005,
+              height: 2.5.h,
             ),
             Row(
               children: [
                 const CheakBoxWidget(),
                 SizedBox(
-                  width: screenWidth * 0.025,
+                  width: 9.w,
                 ),
-                const Text(
+                Text(
                   '12 October, 2020 at 09.45 AM',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 12.63,
-                    color: Color(0xff9D9FA0),
-                    fontFamily: 'Poppins',
+                    fontSize: 12.63.sp,
+                    color: AppColors.subtitleTextColor,
+                    fontFamily: AppFonts.poppins,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: screenHeight * 0.05,
+              height: 35.h,
             ),
-            Container(
-              width: double.infinity,
-              height: 52,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(7.22)),
-                  color: Color(0xffFF8500)),
-              child: const Center(
-                child: Text(
-                  'Apply',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+            CustomButtonWidget(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              text: 'Apply',
+              textColor: AppColors.whiteTextColor,
+              color: AppColors.praimeryButtonColor,
             )
           ],
         ),

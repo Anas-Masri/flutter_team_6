@@ -33,14 +33,15 @@ class _CategoryItemBuilderWidgetState extends State<CategoryItemBuilderWidget> {
           ],
           color: widget.isSelected
               ? AppColors.praimeryButtonColor
-              : const Color(0xffF6F7FA),
+              : AppColors.greyButtonColor,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Text(
           widget.categoryName,
           style: TextStyle(
-              color:
-                  widget.isSelected ? Colors.white : const Color(0xff9D9FA0)),
+              color: widget.isSelected
+                  ? AppColors.whiteTextColor
+                  : AppColors.subtitleTextColor),
         ),
       ),
     );

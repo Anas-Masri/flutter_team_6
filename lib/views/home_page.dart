@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/core/constants/app_constats.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/category_item_builder_widget.dart';
 import 'package:task_7/core/widgets/stack_item_widget.dart';
@@ -26,9 +28,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.only(top: 55),
+        padding: const EdgeInsets.only(top: 25),
         child: Column(children: [
           ListTile(
             trailing: Stack(
@@ -38,12 +40,12 @@ class _HomepageState extends State<Homepage> {
                   top: 0,
                   right: 0,
                   child: Container(
-                    width: 5.5,
-                    height: 5.5,
+                    width: 5.5.w,
+                    height: 5.5.h,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Colors.white,
-                            width: 1.35,
+                            color: AppColors.iconBorderColor,
+                            width: 1.35.w,
                             strokeAlign: BorderSide.strokeAlignOutside),
                         borderRadius: BorderRadius.circular(8),
                         color: AppColors.praimeryButtonColor),
@@ -51,30 +53,40 @@ class _HomepageState extends State<Homepage> {
                 )
               ],
             ),
-            title: const Text('Hallo, Samuel!'),
+            title: Text(
+              'Hallo, Samuel!',
+              style: TextStyle(
+                  fontFamily: AppFonts.poppins,
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.w700),
+            ),
             subtitle: Row(
               children: [
                 SvgPicture.asset(AppSvgIcon.award),
-                const SizedBox(
-                  width: 2.5,
+                SizedBox(
+                  width: 3.w,
                 ),
                 Text(
                   '+1600',
                   style: TextStyle(
-                      color: AppColors.greenColor, fontWeight: FontWeight.w600),
+                      color: AppColors.greenTextColor,
+                      fontWeight: FontWeight.w600),
                 ),
                 Text(
                   ' Points',
                   style: TextStyle(
-                      color: AppColors.greenColor, fontWeight: FontWeight.w400),
+                      color: AppColors.greenTextColor,
+                      fontWeight: FontWeight.w400),
                 ),
               ],
             ),
             leading: Stack(
               children: [
                 Container(
+                  height: 35.h,
+                  width: 35.w,
                   decoration: BoxDecoration(
-                      color: const Color(0xffF6F7FA),
+                      color: AppColors.greyButtonColor,
                       borderRadius: BorderRadius.circular(7)),
                   child: const CircleAvatar(
                     backgroundImage: AssetImage('assets/images/image5.jfif'),
@@ -84,12 +96,12 @@ class _HomepageState extends State<Homepage> {
                   top: 30,
                   left: 30,
                   child: Container(
-                    width: 9,
-                    height: 9,
+                    width: 9.w,
+                    height: 9.h,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            width: 1.34,
-                            color: Colors.white,
+                            width: 1.34.w,
+                            color: AppColors.iconBorderColor,
                             strokeAlign: BorderSide.strokeAlignOutside),
                         borderRadius: BorderRadius.circular(9),
                         color: AppColors.onlineColor),
@@ -98,20 +110,17 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 6,
+          SizedBox(
+            height: 6.h,
           ),
           SizedBox(
-            height: 80,
-            child: ListView.separated(
+            height: 80.h,
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: imageList.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(width: 6);
-              },
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 10),
                   child: VideoCallWidget(
                     image: imageList[index],
                   ),
@@ -122,29 +131,29 @@ class _HomepageState extends State<Homepage> {
           Container(
               padding: const EdgeInsets.only(left: 15, top: 20),
               alignment: Alignment.bottomLeft,
-              child: const Row(
+              child: Row(
                 children: [
                   Text(
                     'Upcoming',
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xff303030)),
+                        color: AppColors.blackTextColor),
                   ),
                   Text(
                     ' course of this week',
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xff303030)),
+                        color: AppColors.blackTextColor),
                   ),
                 ],
               )),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: 15.h,
           ),
           SizedBox(
-            height: 40,
+            height: 37.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categorylist.length,
@@ -162,31 +171,31 @@ class _HomepageState extends State<Homepage> {
               },
             ),
           ),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 19.h,
           ),
           SizedBox(
-            width: 400,
+            width: 400.w,
             child: CarouselSlider.builder(
               carouselController: CarouselSliderController(),
               options: CarouselOptions(
-                enlargeFactor: 0.4,
+                enlargeFactor: 0.3,
                 disableCenter: true,
                 onPageChanged: (index, reason) {
                   imageSelectedIndex = index;
                   setState(() {});
                 },
-                viewportFraction: 0.67,
+                viewportFraction: 0.67.w,
                 enableInfiniteScroll: false,
                 padEnds: false,
-                height: 350,
+                height: 330.h,
                 enlargeCenterPage: true,
               ),
               itemCount: 5,
               itemBuilder:
                   (BuildContext context, int itemIndex, int pageViewIndex) =>
                       Container(
-                          padding: const EdgeInsets.only(left: 15.5),
+                          padding: const EdgeInsets.only(left: 15.5).r,
                           alignment: Alignment.bottomLeft,
                           child: InkWell(
                             onTap: () {
@@ -202,8 +211,8 @@ class _HomepageState extends State<Homepage> {
                           )),
             ),
           ),
-          const SizedBox(
-            height: 13,
+          SizedBox(
+            height: 13.h,
           ),
           SmoothPageIndicator(
             controller: PageController(initialPage: imageSelectedIndex),
@@ -211,7 +220,7 @@ class _HomepageState extends State<Homepage> {
             effect: ExpandingDotsEffect(
                 dotHeight: 5,
                 radius: 7,
-                dotColor: const Color(0xffeeeeee),
+                dotColor: AppColors.disactiveIndicatorColor,
                 activeDotColor: AppColors.praimeryButtonColor,
                 dotWidth: 13.5,
                 expansionFactor: 1.1),

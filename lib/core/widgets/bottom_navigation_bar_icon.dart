@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_7/core/widgets/svg_color_mapper.dart';
 
@@ -20,12 +21,12 @@ class BottomNavigationBarIcon extends StatelessWidget {
         SvgPicture(SvgAssetLoader(svgIcon,
             colorMapper:
                 SvgColorMapper(fromColor: mainColor, toColor: targetColor))),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: 5.h,
         ),
         Container(
-          width: 11,
-          height: 3.5,
+          width: 11.w,
+          height: 3.5.h,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: dashColor),
         )

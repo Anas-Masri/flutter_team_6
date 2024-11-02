@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   carousel_slider: ^5.0.0
   smooth_page_indicator: ^1.2.0+3
+  flutter_screenutil: ^5.9.3
 
 
 dev_dependencies:
@@ -80,9 +81,15 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
-    - family: Poppins2
+    - family: Poppins_bold
       fonts:
-        - asset: assets/fonts/Poppins-ExtraLight.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+    - family: Poppins_lite
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLight.ttf    
+
+
+        
   # fonts:
   #   - family: Schyler
   #     fonts:
