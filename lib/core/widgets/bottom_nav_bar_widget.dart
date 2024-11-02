@@ -59,16 +59,71 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           BottomNavigationBarItem(
             label: '',
             icon: selectedIndex == 2
-                ? BottomNavigationBarIcon(
-                    dashColor: AppColors.praimeryButtonColor,
-                    mainColor: const Color(0xffBDBDBD),
-                    targetColor: AppColors.praimeryButtonColor,
-                    svgIcon: AppSvgIcon.activeMessage)
-                : BottomNavigationBarIcon(
-                    dashColor: Colors.transparent,
-                    mainColor: AppColors.praimeryButtonColor,
-                    targetColor: const Color(0xffBDBDBD).withOpacity(.3),
-                    svgIcon: AppSvgIcon.activeMessage),
+                ? SizedBox(
+                    width: 25,
+                    child: Stack(
+                      children: [
+                        BottomNavigationBarIcon(
+                            dashColor: AppColors.praimeryButtonColor,
+                            mainColor: const Color(0xffBDBDBD),
+                            targetColor: AppColors.praimeryButtonColor,
+                            svgIcon: AppSvgIcon.activeMessage),
+                        Positioned(
+                          right: 1,
+                          top: -5,
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.whiteButtonColor,
+                                    width: 1.8),
+                                borderRadius: BorderRadius.circular(10),
+                                color: AppColors.praimeryButtonColor),
+                            width: 13,
+                            height: 13,
+                            child: const Text(
+                              '2',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 8),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : SizedBox(
+                    width: 25,
+                    child: Stack(
+                      children: [
+                        BottomNavigationBarIcon(
+                            dashColor: Colors.transparent,
+                            mainColor: AppColors.praimeryButtonColor,
+                            targetColor:
+                                const Color(0xffBDBDBD).withOpacity(.3),
+                            svgIcon: AppSvgIcon.activeMessage),
+                        Positioned(
+                          right: 1,
+                          top: -5,
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.whiteButtonColor,
+                                    width: 1.8),
+                                borderRadius: BorderRadius.circular(10),
+                                color: AppColors.praimeryButtonColor),
+                            width: 13,
+                            height: 13,
+                            child: const Text(
+                              '2',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 8),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
           ),
           BottomNavigationBarItem(
               label: '',

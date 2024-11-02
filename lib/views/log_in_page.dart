@@ -17,6 +17,7 @@ class LogInPage extends StatefulWidget {
 class _LogInPageState extends State<LogInPage> {
   final emailTextEditingController = TextEditingController();
   final passwordTextEditingController = TextEditingController();
+  GlobalKey<FormState> globalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -24,140 +25,159 @@ class _LogInPageState extends State<LogInPage> {
       body: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 71).r,
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/focal.png',
-                width: 50.w,
-                height: 60.h,
-              ), // Logo
-              // Replace with your logo
+          child: Form(
+            key: globalKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/focal.png',
+                  width: 50.w,
+                  height: 60.h,
+                ), // Logo
+                // Replace with your logo
 
-              SizedBox(height: 25.h),
+                SizedBox(height: 25.h),
 
-              // Email TextField
-              CustomTextFormFieldWidget(
-                controller: emailTextEditingController,
-                hintText: 'Email',
-              ),
-
-              SizedBox(height: 13.h),
-
-              // Password TextField
-              CustomTextFormFieldWidget(
-                isPassword: true,
-                controller: passwordTextEditingController,
-                hintText: 'Password',
-              ),
-
-              SizedBox(height: 20.h),
-
-              // Sign Up Button
-              CustomButtonWidget(
-                hasShadow: true,
-                text: 'Log in',
-                color: AppColors.praimeryButtonColor,
-                textColor: Colors.white,
-                onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePageView(),
-                      ));
-                },
-              ),
-              SizedBox(height: 27.h),
-              Text(
-                'Forgot Password?',
-                style: TextStyle(
-                    color: AppColors.blueTextColor,
-                    fontFamily: AppFonts.poppins,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.5.sp),
-              ),
-
-              SizedBox(height: 39.h),
-
-              // OR divider
-              Row(
-                children: [
-                  const Expanded(child: Divider()),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      'or',
-                      style: TextStyle(
-                          fontSize: 14.5.sp,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: AppFonts.poppins),
-                    ),
-                  ),
-                  const Expanded(child: Divider()),
-                ],
-              ),
-
-              SizedBox(height: 13.h),
-
-              // Facebook Login Button
-              CustomButtonWidget(
-                hasIcon: true,
-                icon: const Icon(
-                  Icons.facebook,
-                  color: Colors.white,
+                // Email TextField
+                CustomTextFormFieldWidget(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Email is a required Field';
+                    } else {
+                      return null;
+                    }
+                  },
+                  controller: emailTextEditingController,
+                  hintText: 'Email',
                 ),
-                text: 'Log in with Facebook',
-                textColor: Colors.white,
-                color: AppColors.blueTextColor,
-              ),
-              SizedBox(height: 13.h),
 
-              // Google Login Button
-              CustomButtonWidget(
-                hasBorder: true,
-                hasIcon: true,
-                icon: Image.asset(
-                  'assets/images/google.png',
+                SizedBox(height: 13.h),
+
+                // Password TextField
+                CustomTextFormFieldWidget(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Password is a required Field';
+                    } else {
+                      return null;
+                    }
+                  },
+                  isPassword: true,
+                  controller: passwordTextEditingController,
+                  hintText: 'Password',
                 ),
-                text: 'Log in with Google',
-                textColor: AppColors.blackTextColor,
-                color: AppColors.greyButtonColor,
-              ),
 
-              // Terms of Service and Privacy Policy
+                SizedBox(height: 20.h),
 
-              SizedBox(height: 117.h),
-
-              // Log in link
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Don’t have an account?',
-                    style: TextStyle(
-                        color: AppColors.subtitleTextColor,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14.5.sp),
-                  ),
-                  InkWell(
-                    child: Text(
-                      ' Sign Up',
-                      style: TextStyle(
-                          color: AppColors.blueTextColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.5.sp),
-                    ),
-                    onTap: () {
+                // Sign Up Button
+                CustomButtonWidget(
+                  hasShadow: true,
+                  text: 'Log in',
+                  color: AppColors.praimeryButtonColor,
+                  textColor: Colors.white,
+                  onTap: () {
+                    if (globalKey.currentState!.validate()) {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignUpPage()));
-                    },
+                            builder: (context) => const HomePageView(),
+                          ));
+                    }
+                  },
+                ),
+                SizedBox(height: 27.h),
+                Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                      color: AppColors.blueTextColor,
+                      fontFamily: AppFonts.poppins,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.5.sp),
+                ),
+
+                SizedBox(height: 39.h),
+
+                // OR divider
+                Row(
+                  children: [
+                    const Expanded(child: Divider()),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'or',
+                        style: TextStyle(
+                            fontSize: 14.5.sp,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: AppFonts.poppins),
+                      ),
+                    ),
+                    const Expanded(child: Divider()),
+                  ],
+                ),
+
+                SizedBox(height: 13.h),
+
+                // Facebook Login Button
+                CustomButtonWidget(
+                  hasIcon: true,
+                  icon: const Icon(
+                    Icons.facebook,
+                    color: Colors.white,
                   ),
-                ],
-              ),
-            ],
+                  text: 'Log in with Facebook',
+                  textColor: Colors.white,
+                  color: AppColors.blueTextColor,
+                ),
+                SizedBox(height: 13.h),
+
+                // Google Login Button
+                CustomButtonWidget(
+                  hasBorder: true,
+                  hasIcon: true,
+                  icon: Image.asset(
+                    'assets/images/google.png',
+                  ),
+                  text: 'Log in with Google',
+                  textColor: AppColors.blackTextColor,
+                  color: AppColors.greyButtonColor,
+                ),
+
+                // Terms of Service and Privacy Policy
+
+                SizedBox(height: 100.h),
+
+                // Log in link
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don’t have an account?',
+                      style: TextStyle(
+                          color: AppColors.subtitleTextColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.5.sp),
+                    ),
+                    InkWell(
+                      child: Text(
+                        ' Sign Up',
+                        style: TextStyle(
+                            color: AppColors.blueTextColor,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.5.sp),
+                      ),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignUpPage()));
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

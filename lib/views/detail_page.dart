@@ -287,6 +287,40 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: AppColors.greyButtonColor),
+                width: 309.w,
+                height: 75.h,
+                child: ListTile(
+                  subtitle: const Text(
+                    '04:10m',
+                    style: TextStyle(color: Color(0xff8C8C8C)),
+                  ),
+                  title: Text(
+                    'How to get feedback on their products in just 5 days',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13.sp,
+                        fontFamily: AppFonts.poppins),
+                  ),
+                  leading: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset('assets/images/orange square.png'),
+                      const Icon(
+                        Icons.play_arrow,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ));
