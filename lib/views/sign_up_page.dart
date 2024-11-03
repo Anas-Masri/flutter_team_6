@@ -42,6 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                 // Fullname TextField
                 CustomTextFormFieldWidget(
+                  isPassword: false,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Fullname is a required Field';
@@ -57,6 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                 // Email TextField
                 CustomTextFormFieldWidget(
+                  isPassword: false,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Email is a required Field';

@@ -27,7 +27,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: widget.validator,
-      obscureText: !isVisible,
+      obscureText: widget.isPassword ? !isVisible : false,
       controller: widget.controller,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(

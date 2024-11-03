@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_7/core/constants/app_colors.dart';
+import 'package:task_7/core/constants/app_fonts.dart';
 import 'package:task_7/core/constants/app_svg_icon.dart';
 import 'package:task_7/core/widgets/bottom_navigation_bar_icon.dart';
 
@@ -26,6 +28,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           setState(() {});
         },
         selectedFontSize: 0,
+        iconSize: 28,
         type: BottomNavigationBarType.fixed,
         elevation: 4,
         backgroundColor: Colors.white,
@@ -57,74 +60,83 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
                       targetColor: AppColors.disactiveButtonColor,
                       svgIcon: AppSvgIcon.map)),
           BottomNavigationBarItem(
-            label: '',
-            icon: selectedIndex == 2
-                ? SizedBox(
-                    width: 25,
-                    child: Stack(
+              label: '',
+              icon: selectedIndex == 2
+                  ? Column(
                       children: [
-                        BottomNavigationBarIcon(
-                            dashColor: AppColors.praimeryButtonColor,
-                            mainColor: const Color(0xffBDBDBD),
-                            targetColor: AppColors.praimeryButtonColor,
-                            svgIcon: AppSvgIcon.activeMessage),
-                        Positioned(
-                          right: 1,
-                          top: -5,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: AppColors.whiteButtonColor,
-                                    width: 1.8),
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColors.praimeryButtonColor),
-                            width: 13,
-                            height: 13,
-                            child: const Text(
-                              '2',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 8),
+                        Stack(
+                          children: [
+                            Icon(
+                              Icons.email,
+                              color: AppColors.praimeryButtonColor,
                             ),
-                          ),
+                            Positioned(
+                                bottom: 14,
+                                left: 14,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 15,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 1.8,
+                                          color: AppColors.iconBorderColor),
+                                      color: AppColors.praimeryButtonColor,
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Text(
+                                    '2',
+                                    style: TextStyle(
+                                      fontFamily: AppFonts.poppins,
+                                      color: Colors.white,
+                                      fontSize: 9,
+                                    ),
+                                  ),
+                                ))
+                          ],
+                        ),
+                        Container(
+                          width: 11.w,
+                          height: 3.5.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppColors.praimeryButtonColor),
                         )
                       ],
-                    ),
-                  )
-                : SizedBox(
-                    width: 25,
-                    child: Stack(
+                    )
+                  : Column(
                       children: [
-                        BottomNavigationBarIcon(
-                            dashColor: Colors.transparent,
-                            mainColor: AppColors.praimeryButtonColor,
-                            targetColor:
-                                const Color(0xffBDBDBD).withOpacity(.3),
-                            svgIcon: AppSvgIcon.activeMessage),
-                        Positioned(
-                          right: 1,
-                          top: -5,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: AppColors.whiteButtonColor,
-                                    width: 1.8),
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColors.praimeryButtonColor),
-                            width: 13,
-                            height: 13,
-                            child: const Text(
-                              '2',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 8),
+                        Stack(
+                          children: [
+                            Icon(
+                              Icons.email,
+                              color: AppColors.disactiveButtonColor,
                             ),
-                          ),
-                        )
+                            Positioned(
+                                bottom: 13,
+                                left: 13,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 15.r,
+                                  height: 15.r,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 1.8,
+                                          color: AppColors.iconBorderColor),
+                                      color: AppColors.praimeryButtonColor,
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Text(
+                                    '2',
+                                    style: TextStyle(
+                                      fontFamily: AppFonts.poppins,
+                                      color: Colors.white,
+                                      fontSize: 9.sp,
+                                    ),
+                                  ),
+                                ))
+                          ],
+                        ),
                       ],
-                    ),
-                  ),
-          ),
+                    )),
           BottomNavigationBarItem(
               label: '',
               icon: selectedIndex == 3
