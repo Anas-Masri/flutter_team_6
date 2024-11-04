@@ -21,8 +21,8 @@ class Homepage extends StatefulWidget {
 }
 
 PageController controller = PageController();
-int imageSelectedIndex = 0;
 int selectedIndex = 0;
+int imageSelectedIndex = 0;
 
 class _HomepageState extends State<Homepage> {
   @override
@@ -35,13 +35,13 @@ class _HomepageState extends State<Homepage> {
           ListTile(
             trailing: Stack(
               children: [
-                SvgPicture.asset(AppSvgIcon.notification),
+                SizedBox(child: SvgPicture.asset(AppSvgIcon.notification)),
                 Positioned(
                   top: 0,
                   right: 0,
                   child: Container(
-                    width: 5.5.w,
-                    height: 5.5.h,
+                    width: 5.5.r,
+                    height: 5.5.r,
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: AppColors.iconBorderColor,
@@ -57,7 +57,7 @@ class _HomepageState extends State<Homepage> {
               'Hallo, Samuel!',
               style: TextStyle(
                   fontFamily: AppFonts.poppins,
-                  fontSize: 14.5,
+                  fontSize: 14.5.sp,
                   fontWeight: FontWeight.w700),
             ),
             subtitle: Row(
@@ -69,12 +69,16 @@ class _HomepageState extends State<Homepage> {
                 Text(
                   '+1600',
                   style: TextStyle(
+                      fontSize: 12.6.sp,
+                      fontFamily: AppFonts.poppins,
                       color: AppColors.greenTextColor,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   ' Points',
                   style: TextStyle(
+                      fontFamily: AppFonts.poppins,
+                      fontSize: 12.6.sp,
                       color: AppColors.greenTextColor,
                       fontWeight: FontWeight.w400),
                 ),
@@ -136,6 +140,7 @@ class _HomepageState extends State<Homepage> {
                   Text(
                     'Upcoming',
                     style: TextStyle(
+                        fontFamily: AppFonts.poppins,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         color: AppColors.blackTextColor),
@@ -143,6 +148,7 @@ class _HomepageState extends State<Homepage> {
                   Text(
                     ' course of this week',
                     style: TextStyle(
+                        fontFamily: AppFonts.poppins,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
                         color: AppColors.blackTextColor),
@@ -177,8 +183,8 @@ class _HomepageState extends State<Homepage> {
           SizedBox(
             width: 400.w,
             child: CarouselSlider.builder(
-              carouselController: CarouselSliderController(),
               options: CarouselOptions(
+                initialPage: imageSelectedIndex,
                 enlargeFactor: 0.3,
                 disableCenter: true,
                 onPageChanged: (index, reason) {

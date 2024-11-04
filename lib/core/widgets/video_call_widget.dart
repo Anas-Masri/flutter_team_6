@@ -18,22 +18,22 @@ class VideoCallWidget extends StatelessWidget {
             offset: const Offset(0, 4.5),
             color: AppColors.praimeryButtonColor.withOpacity(0.25))
       ]),
-      height: 80.h,
-      width: 80.w,
+      height: 80.r,
+      width: 80.r,
       child: Stack(
         alignment: Alignment.center,
         children: [
           SizedBox(
-            height: 68.h,
-            width: 68.w,
+            height: 68.r,
+            width: 68.r,
             child: CircleAvatar(
               backgroundImage: AssetImage(image),
             ),
           ),
           Container(
             alignment: Alignment.center,
-            width: 65.w,
-            height: 65.h,
+            width: 65.r,
+            height: 65.r,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(21.65),
                 border: Border.all(

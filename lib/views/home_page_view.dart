@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_7/core/constants/app_colors.dart';
 import 'package:task_7/views/home_page.dart';
 import 'package:task_7/views/map_page.dart';
 import 'package:task_7/views/my_message_page.dart';
@@ -19,7 +20,7 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       bottomNavigationBar: BottomNavBarWidget(
         controller: controller,
       ),

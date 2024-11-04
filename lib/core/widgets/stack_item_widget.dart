@@ -60,12 +60,12 @@ class StackItemWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 222.h,
+          top: 224.h,
           left: 15.5.w,
           child: SvgPicture.asset(AppSvgIcon.timeIcon),
         ),
         Positioned(
-          top: 222.h,
+          top: 224.h,
           left: 37.w,
           child: Text(
             '5h 21m',

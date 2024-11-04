@@ -22,6 +22,8 @@ int selectedIndex = 0;
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
+    TextEditingController telpNumber = TextEditingController();
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: CustomButtonWidget(
@@ -29,11 +31,16 @@ class _DetailPageState extends State<DetailPage> {
           textColor: AppColors.whiteTextColor,
           text: 'Follow class',
           onTap: () {
+            email = TextEditingController();
+            telpNumber = TextEditingController();
             showModalBottomSheet(
               context: context,
               isScrollControlled: true,
               builder: (BuildContext context) {
-                return const BottomSheetWidget();
+                return BottomSheetWidget(
+                  email: email,
+                  telpNumber: telpNumber,
+                );
               },
             );
           },
@@ -252,7 +259,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Column(
                       children: [
                         SizedBox(
-                          width: 50.w,
+                          width: 60.w,
                           height: 20.h,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -273,7 +280,7 @@ class _DetailPageState extends State<DetailPage> {
                           height: 7.h,
                         ),
                         SizedBox(
-                          width: 80.w,
+                          width: 82.w,
                           height: 21.h,
                           child: PositionContainerTextWidget(
                             insideStack: false,
